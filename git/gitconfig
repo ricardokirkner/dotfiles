@@ -1,0 +1,21 @@
+[user]
+	email = ricardo@kirkner.com.ar
+	name = Ricardo Kirkner
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+	ui = auto
+
+[core]
+	editor = vim
+	pager = less
+	excludesfile = ~/.gitignore
+
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	ls = ls-files
+	st = status
