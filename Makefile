@@ -1,4 +1,4 @@
-install: install-bazaar install-git install-python install-zsh
+install: install-bazaar install-git install-python install-vim install-zsh
 
 install-bazaar:
 	rm -rf ~/.bazaar
@@ -22,6 +22,17 @@ install-git:
 install-python:
 	rm -f ~/.pythonrc
 	ln -s `pwd`/python/pythonrc ~/.pythonrc
+
+install-vim:
+	rm -rf ~/.vim ~/.vimrc
+	ln -s `pwd`/vim/vim ~/.vim
+	ln -s `pwd`/vim/vimrc ~/.vimrc
+	make install-vim-plugins
+
+install-vim-plugins: install-pathogen
+
+install-pathogen:
+	git clone https://github.com/tpope/vim-pathogen.git ~/.vim/bundle/vim-pathogen
 
 install-oh-my-zsh:
 	rm -rf ~/.oh-my-zsh
