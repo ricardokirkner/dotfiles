@@ -36,7 +36,8 @@ install-pathogen:
 
 install-oh-my-zsh:
 	rm -rf ~/.oh-my-zsh
-	git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+	ln -s zsh/oh-my-zsh ~/.oh-my-zsh
+	git submodule update zsh/oh-my-zsh
 
 install-zsh: install-oh-my-zsh
 	rm -rf ~/.zsh ~/.zshrc
