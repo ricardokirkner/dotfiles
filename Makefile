@@ -23,23 +23,21 @@ install-python:
 	rm -f ~/.pythonrc
 	ln -s `pwd`/python/pythonrc ~/.pythonrc
 
-install-vim:
+install-vim: install-vim-plugins
 	rm -rf ~/.vim ~/.vimrc
 	ln -s `pwd`/vim/vim ~/.vim
 	ln -s `pwd`/vim/vimrc ~/.vimrc
-	make install-vim-plugins
 
-install-vim-plugins: install-pathogen
+install-vim-plugins:
+	git submodule update
 
-install-pathogen:
-	git clone https://github.com/tpope/vim-pathogen.git ~/.vim/bundle/vim-pathogen
+install-zsh: install-oh-my-zsh
+	rm -rf ~/.zsh ~/.zshrc
+	ln -s `pwd`/zsh/zsh ~/.zsh
+	ln -s `pwd`/zsh/zshrc ~/.zshrc
 
 install-oh-my-zsh:
 	rm -rf ~/.oh-my-zsh
 	ln -s zsh/oh-my-zsh ~/.oh-my-zsh
 	git submodule update zsh/oh-my-zsh
 
-install-zsh: install-oh-my-zsh
-	rm -rf ~/.zsh ~/.zshrc
-	ln -s `pwd`/zsh/zsh ~/.zsh
-	ln -s `pwd`/zsh/zshrc ~/.zshrc
