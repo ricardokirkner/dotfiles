@@ -3,6 +3,7 @@ install: install-bazaar install-git install-python install-vim install-zsh
 install-bazaar:
 	rm -rf ~/.bazaar
 	ln -s `pwd`/bazaar ~/.bazaar
+	mkdir -p ~/.bazaar/plugins
 	make install-bzr-plugins
 
 install-bzr-plugins: install-bzr-pipeline install-bzr-pager
@@ -29,7 +30,7 @@ install-vim: install-vim-plugins
 	ln -s `pwd`/vim/vimrc ~/.vimrc
 
 install-vim-plugins:
-	git submodule update
+	git submodule update --init
 
 install-zsh: install-oh-my-zsh
 	rm -rf ~/.zsh ~/.zshrc
@@ -37,7 +38,7 @@ install-zsh: install-oh-my-zsh
 	ln -s `pwd`/zsh/zshrc ~/.zshrc
 
 install-oh-my-zsh:
+	git submodule update --init zsh/oh-my-zsh
 	rm -rf ~/.oh-my-zsh
-	ln -s zsh/oh-my-zsh ~/.oh-my-zsh
-	git submodule update zsh/oh-my-zsh
+	ln -s `pwd`/zsh/oh-my-zsh ~/.oh-my-zsh
 
