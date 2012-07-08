@@ -4,6 +4,7 @@ let g:mapleader = ","
 
 " numbers
 " ########
+let g:pep8_map = "<leader>8"
 
 " letters
 " ########
@@ -64,6 +65,7 @@ nnoremap <C-S-Right> <C-]>
 " ##############
 map <silent> <F4> :TlistToggle<CR>
 map <silent> <F5> :NERDTreeToggle<CR>
+map <silent> <F9> <Plug>TaskList
 " toggle line numbers and fold column for easy copying
 map <silent> <S-F12> :set nonumber!<CR>:set foldcolumn=0<CR>
 
