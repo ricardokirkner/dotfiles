@@ -30,7 +30,16 @@ install-vim: install-vim-plugins
 	ln -s `pwd`/vim/vimrc ~/.vimrc
 
 install-vim-plugins:
-	git submodule update --init
+	git submodule update --init --recursive
+	make build-vim-plugins
+
+build-vim-plugins: build-command-t
+
+build-command-t:
+	sudo apt-get install vim-nox ruby ruby-dev
+	cd ~/.vim/bundle/command-t/ruby/command-t
+	ruby extconf.rb
+	make
 
 install-zsh: install-oh-my-zsh
 	rm -rf ~/.zsh ~/.zshrc
