@@ -1,6 +1,6 @@
-install: install-bazaar install-git install-python install-vim install-zsh
+all: bazaar git python vim zsh
 
-install-bazaar:
+bazaar:
 	rm -rf ~/.bazaar
 	ln -s `pwd`/bazaar ~/.bazaar
 	mkdir -p ~/.bazaar/plugins
@@ -16,32 +16,20 @@ install-bzr-pager:
 	rm -rf ~/.bazaar/plugins/pager
 	bzr branch http://bzr.oxygene.sk/bzr-plugins/pager ~/.bazaar/plugins/pager
 
-install-git:
+git:
 	rm -f ~/.gitconfig
 	ln -s `pwd`/git/gitconfig ~/.gitconfig
 
-install-python:
+python:
 	rm -f ~/.pythonrc
 	ln -s `pwd`/python/pythonrc ~/.pythonrc
 
-install-vim: install-vim-plugins
+vim:
 	rm -rf ~/.vim ~/.vimrc
-	ln -s `pwd`/vim/vim ~/.vim
 	ln -s `pwd`/vim/vimrc ~/.vimrc
+	ln -s `pwd`/vim/vim ~/.vim
 
-install-vim-plugins:
-	git submodule update --init --recursive
-	make build-vim-plugins
-
-build-vim-plugins: build-command-t
-
-build-command-t:
-	sudo apt-get install vim-nox ruby ruby-dev
-	cd ~/.vim/bundle/command-t/ruby/command-t
-	ruby extconf.rb
-	make
-
-install-zsh: install-oh-my-zsh
+zsh: install-oh-my-zsh
 	rm -rf ~/.zsh ~/.zshrc
 	ln -s `pwd`/zsh/zsh ~/.zsh
 	ln -s `pwd`/zsh/zshrc ~/.zshrc
@@ -50,4 +38,3 @@ install-oh-my-zsh:
 	git submodule update --init zsh/oh-my-zsh
 	rm -rf ~/.oh-my-zsh
 	ln -s `pwd`/zsh/oh-my-zsh ~/.oh-my-zsh
-
