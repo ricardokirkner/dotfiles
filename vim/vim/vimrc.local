@@ -54,3 +54,6 @@ Bundle 'jamessan/vim-gnupg'
 set autochdir
 " allow changing buffers even if current buffer has pending changes
 set hidden
+
+" Go lang
+Bundle 'jnwhiteh/vim-golang'
