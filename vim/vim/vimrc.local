@@ -48,3 +48,4 @@ vim.command( "map <S-F9> :py RemoveBreakpoints()<cr>")
 EOF
 
 Bundle 'tpope/vim-surround'
+Bundle 'jamessan/vim-gnupg'
