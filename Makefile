@@ -1,20 +1,28 @@
 all: bazaar git python vim zsh
 
+.PHONY: bazaar git python vim zsh
+
 bazaar:
 	rm -rf ~/.bazaar
-	ln -s `pwd`/bazaar ~/.bazaar
 	mkdir -p ~/.bazaar/plugins
 	make install-bzr-plugins
+	ln -s `pwd`/bazaar ~/.bazaar
 
 install-bzr-plugins: install-bzr-pipeline install-bzr-pager
 
 install-bzr-pipeline:
-	rm -rf ~/.bazaar/plugins/pipeline
-	bzr branch lp:bzr-pipeline ~/.bazaar/plugins/pipeline
+	if test -d ~/.bazaar/plugins/pipeline; then \
+		cd ~/.bazaar/plugins/pipeline && bzr pull; \
+	else \
+		bzr branch lp:bzr-pipeline ~/.bazaar/plugins/pipeline; \
+	fi
 
 install-bzr-pager:
-	rm -rf ~/.bazaar/plugins/pager
-	bzr branch http://bzr.oxygene.sk/bzr-plugins/pager ~/.bazaar/plugins/pager
+	if test -d ~/.bazaar/plugins/pager; then \
+		cd ~/.bazaar/plugins/pager && bzr pull; \
+	else \
+		bzr branch http://bzr.oxygene.sk/bzr-plugins/pager ~/.bazaar/plugins/pager; \
+	fi
 
 git:
 	rm -f ~/.gitconfig
