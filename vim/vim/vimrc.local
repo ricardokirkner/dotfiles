@@ -49,3 +49,8 @@ EOF
 
 Bundle 'tpope/vim-surround'
 Bundle 'jamessan/vim-gnupg'
+
+" automatically set working directory to the current file
+set autochdir
+" allow changing buffers even if current buffer has pending changes
+set hidden
