@@ -1,6 +1,6 @@
-all: bazaar git python vim zsh gnome-terminal-colors-solarized
+all: bazaar git python vim zsh gnome-terminal-colors-solarized x11
 
-.PHONY: bazaar git python vim zsh gnome-terminal-colors-solarized
+.PHONY: bazaar git python vim zsh gnome-terminal-colors-solarized x11
 
 bazaar:
 	rm -rf ~/.bazaar
@@ -50,3 +50,7 @@ install-oh-my-zsh:
 gnome-terminal-colors-solarized:
 	git submodule update --init gnome-terminal-colors-solarized
 	./gnome-terminal-colors-solarized/set_dark.sh
+
+x11:
+	rm -rf ~/.Xresources
+	ln -s `pwd`/x11/Xresources ~/.Xresources
