@@ -60,3 +60,9 @@ Bundle 'jnwhiteh/vim-golang'
 
 " vimwiki
 Bundle 'vimwiki/vimwiki'
+
+" solarized color scheme
+Bundle 'altercation/vim-colors-solarized'
+syntax on
+set background=dark
+colorscheme solarized
