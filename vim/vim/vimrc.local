@@ -57,3 +57,6 @@ set hidden
 
 " Go lang
 Bundle 'jnwhiteh/vim-golang'
+
+" vimwiki
+Bundle 'vimwiki/vimwiki'
