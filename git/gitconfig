@@ -19,3 +19,5 @@
 	co = checkout
 	ls = ls-files
 	st = status
+	missing = log HEAD..origin
+	pending = log origin..HEAD
