@@ -68,7 +68,7 @@ set background=dark
 colorscheme solarized
 
 " useful abbreviations
-iabbr _me Ricardo Kirkner <ricardo@kirnercom.ar><CR>
+iabbr _me Ricardo Kirkner <ricardo@kirkner.com.ar><CR>
 iabbr _t <C-R>=strftime("%H:%M:%S")<CR>
 iabbr _d <C-R>=strftime("%a, %d %b %Y")<CR>
 iabbr _dt <C-R>=strftime("%a, %d %b %Y %H:%M:%S %z")<CR>
