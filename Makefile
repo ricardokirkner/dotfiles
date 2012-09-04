@@ -4,9 +4,9 @@ all: bazaar git python vim zsh gnome-terminal-colors-solarized x11
 
 bazaar:
 	rm -rf ~/.bazaar
+	ln -s `pwd`/bazaar ~/.bazaar
 	mkdir -p ~/.bazaar/plugins
 	make install-bzr-plugins
-	ln -s `pwd`/bazaar ~/.bazaar
 
 install-bzr-plugins: install-bzr-pipeline install-bzr-pager
 
