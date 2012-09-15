@@ -1,32 +1,25 @@
-all: bazaar git python vim zsh gnome-terminal-colors-solarized x11
+all: bazaar git gnome-terminal-colors-solarized mr python vim x11 zsh
 
-.PHONY: bazaar git python vim zsh gnome-terminal-colors-solarized x11
+.PHONY: bazaar git gnome-terminal-colors-solarized mr python vim x11 zsh
 
 bazaar:
 	rm -rf ~/.bazaar
 	ln -s `pwd`/bazaar ~/.bazaar
 	mkdir -p ~/.bazaar/plugins
-	make install-bzr-plugins
-
-install-bzr-plugins: install-bzr-pipeline install-bzr-pager
-
-install-bzr-pipeline:
-	if test -d ~/.bazaar/plugins/pipeline; then \
-		cd ~/.bazaar/plugins/pipeline && bzr pull; \
-	else \
-		bzr branch lp:bzr-pipeline ~/.bazaar/plugins/pipeline; \
-	fi
-
-install-bzr-pager:
-	if test -d ~/.bazaar/plugins/pager; then \
-		cd ~/.bazaar/plugins/pager && bzr pull; \
-	else \
-		bzr branch http://bzr.oxygene.sk/bzr-plugins/pager ~/.bazaar/plugins/pager; \
-	fi
+	make mr
 
 git:
 	rm -f ~/.gitconfig
 	ln -s `pwd`/git/gitconfig ~/.gitconfig
+
+gnome-terminal-colors-solarized:
+	git submodule update --init gnome-terminal-colors-solarized
+	./gnome-terminal-colors-solarized/set_dark.sh
+
+mr:
+	rm -rf ~/.mrconfig
+	ln -s `pwd`/mr/mrconfig ~/.mrconfig
+	mr update
 
 python:
 	rm -f ~/.pythonrc
@@ -37,20 +30,12 @@ vim:
 	ln -s `pwd`/vim/vimrc ~/.vimrc
 	ln -s `pwd`/vim/vim ~/.vim
 
-zsh: install-oh-my-zsh
-	rm -rf ~/.zsh ~/.zshrc
-	ln -s `pwd`/zsh/zsh ~/.zsh
-	ln -s `pwd`/zsh/zshrc ~/.zshrc
-
-install-oh-my-zsh:
-	git submodule update --init zsh/oh-my-zsh
-	rm -rf ~/.oh-my-zsh
-	ln -s `pwd`/zsh/oh-my-zsh ~/.oh-my-zsh
-
-gnome-terminal-colors-solarized:
-	git submodule update --init gnome-terminal-colors-solarized
-	./gnome-terminal-colors-solarized/set_dark.sh
-
 x11:
 	rm -rf ~/.Xresources
 	ln -s `pwd`/x11/Xresources ~/.Xresources
+
+zsh:
+	rm -rf ~/.zsh ~/.zshrc
+	ln -s `pwd`/zsh/zsh ~/.zsh
+	ln -s `pwd`/zsh/zshrc ~/.zshrc
+	make mr
