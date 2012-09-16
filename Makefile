@@ -19,7 +19,7 @@ gnome-terminal-colors-solarized:
 mr:
 	rm -rf ~/.mrconfig
 	ln -s `pwd`/mr/mrconfig ~/.mrconfig
-	mr update
+	cd ~ && mr update
 
 python:
 	rm -f ~/.pythonrc
