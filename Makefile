@@ -1,6 +1,8 @@
-all: bazaar git gnome-terminal-colors-solarized mr python vim x11 zsh
+.PHONY: bazaar git gnome-terminal-colors-solarized mr nox python vim x11 zsh
 
-.PHONY: bazaar git gnome-terminal-colors-solarized mr python vim x11 zsh
+all: nox gnome-terminal-colors-solarized x11
+nox: bazaar git python vim zsh
+
 
 bazaar:
 	rm -rf ~/.bazaar
