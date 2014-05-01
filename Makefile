@@ -8,7 +8,6 @@ bazaar:
 	rm -rf ~/.bazaar
 	ln -s `pwd`/bazaar ~/.bazaar
 	mkdir -p ~/.bazaar/plugins
-	make mr
 
 git:
 	rm -f ~/.gitconfig

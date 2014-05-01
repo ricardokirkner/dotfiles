@@ -1,8 +1,2 @@
-[.bazaar/plugins/pipeline]
-checkout = bzr branch http://bazaar.launchpad.net/~abentley/bzr-pipeline/trunk $HOME/.bazaar/plugins/pipeline
-
 [.bazaar/plugins/pager]
 checkout = bzr branch http://bazaar.launchpad.net/~luks/bzr-pager/trunk $HOME/.bazaar/plugins/pager
-
-[.oh-my-zsh]
-checkout = git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
