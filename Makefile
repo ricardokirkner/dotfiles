@@ -37,7 +37,16 @@ x11:
 	ln -s `pwd`/x11/Xresources ~/.Xresources
 
 zsh:
-	rm -rf ~/.zsh ~/.zshrc
+	rm -rf ~/.zsh ~/.zlogin ~/.zlogout ~/.zprofile ~/.zshenv ~/.zshrc
 	ln -s `pwd`/zsh/zsh ~/.zsh
+	ln -s `pwd`/zsh/zlogin ~/.zlogin
+	ln -s `pwd`/zsh/zlogout ~/.zlogout
+	ln -s `pwd`/zsh/zprofile ~/.zprofile
+	ln -s `pwd`/zsh/zshenv ~/.zshenv
 	ln -s `pwd`/zsh/zshrc ~/.zshrc
-	make mr
+	make prezto
+
+prezto:
+	rm -rf ~/.zprezto ~/.zpreztorc
+	ln -s `pwd`/zsh/prezto ~/.zprezto
+	ln -s `pwd`/zsh/zpreztorc ~/.zpreztorc
